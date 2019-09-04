@@ -31,6 +31,7 @@ const Header = ({ user }) => (
       { user ? authenticatedOptions : unauthenticatedOptions }
       { alwaysOptions }
     </nav>
+    
   </header>
 )
 
