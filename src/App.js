@@ -9,6 +9,10 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
+import Product from './component/product'; 
+import Products from './component/products'; 
+import footer from './component/footer'; 
+import cartItem from './component/cartItem'; 
 
 class App extends Component {
   constructor () {
@@ -51,7 +55,12 @@ class App extends Component {
             <ChangePassword alert={this.alert} user={user} />
           )} />
         </main>
+        <footer/> 
+        <Product/>
+        <Products/> 
+        <cartItem/> 
       </React.Fragment>
+
     )
   }
 }
