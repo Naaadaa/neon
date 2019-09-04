@@ -25,11 +25,11 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>Uber, But For Taxis</h1>
-    <nav>
-      { user && <span>Welcome, {user.email}</span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
-      { alwaysOptions }
+    <nav className="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">Neon </span>
+    { user && <span>Welcome, {user.email}</span>} 
+   { user ? authenticatedOptions : unauthenticatedOptions }
+    { alwaysOptions }
     </nav>
     
   </header>
