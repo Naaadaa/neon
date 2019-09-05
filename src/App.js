@@ -11,7 +11,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 import Product from './component/product'; 
 import Products from './component/products'; 
-import footer from './component/footer'; 
+import Footer from './component/Footer/Footer'; 
 import cartItem from './component/cartItem'; 
 
 class App extends Component {
@@ -59,6 +59,7 @@ class App extends Component {
         <Product/>
         <Products/> 
         <cartItem/> 
+        <Footer/>
       </React.Fragment>
 
     )
