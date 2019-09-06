@@ -56,7 +56,7 @@ class App extends Component {
           )} />
         </main>
         <footer/> 
-        <Product/>
+       
         <Products/> 
         <cartItem/> 
       </React.Fragment>

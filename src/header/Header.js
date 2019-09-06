@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button ,Navbar, NavbarBrand} from 'reactstrap'
 
 import './Header.scss'
 
@@ -24,15 +25,17 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
+  
+  <Navbar color="light" light expand="md">
+  <NavbarBrand href="/">Neon</NavbarBrand>
   <header className="main-header">
-    <nav className="navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1">Neon </span>
     { user && <span>Welcome, {user.email}</span>} 
    { user ? authenticatedOptions : unauthenticatedOptions }
     { alwaysOptions }
-    </nav>
+     </header>
+    </Navbar>
     
-  </header>
+ 
 )
 
 export default Header
