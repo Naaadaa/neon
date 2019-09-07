@@ -26,15 +26,20 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   
-  <Navbar color="light" light expand="md">
-  <NavbarBrand href="/">Neon</NavbarBrand>
+  <Navbar className="nav" color="light" light expand="md">
+   <NavbarBrand href="/">Neon</NavbarBrand>
+
+    <ul>
+     <li className="nav-item" ><Link className="nav-link" to="/cart">My cart</Link></li>
+     <li className="nav-item" ><Link className="nav-link" to="/cart"><i className="material-icons">shopping_cart</i></Link></li>
+   </ul>
+
   <header className="main-header">
     { user && <span>Welcome, {user.email}</span>} 
    { user ? authenticatedOptions : unauthenticatedOptions }
     { alwaysOptions }
-     </header>
-    </Navbar>
-    
+  </header>
+  </Navbar>
  
 )
 
