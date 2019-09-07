@@ -18,7 +18,7 @@ class Product extends Component {
       name: '',
       color: '',
       image: '',
-      price: 0 ,
+      price: '',
       description:''
 
     }
@@ -67,18 +67,18 @@ class Product extends Component {
      console.log(`price: ${this.state.price}`);
      console.log(`description: ${this.state.description}`);
      
-    //  const newProduct ={
-    //    name:this.state.name,
-    //    color:this.state.color,
-    //    image:this.state.image,
-    //    price:this.state.price,
-    //    description:this.state.description
-    // }
+     const newProduct ={
+       name:this.state.name,
+       color:this.state.color,
+       image:this.state.image,
+       price:this.state.price,
+       description:this.state.description
+    }
 
-    // axios.post('http://localhost:3010/products/add',newProduct)
-    // .then(res=> {
-    //   console.log(res.data)
-    // });
+    axios.post('http://localhost:4000/products/add',newProduct)
+    .then(res=> {
+      console.log(res.data)
+    });
     
 
     this.setState({
@@ -86,7 +86,7 @@ class Product extends Component {
       name: '',
       color: '',
       image: '',
-      price: '' ,
+      price: '',
       description:''
     
     })
