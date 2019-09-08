@@ -10,7 +10,8 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 import Product from './component/product'; 
-import Products from './component/products'; 
+import Products from './component/products';
+import EditProduct from './editProduct' ; 
 import Footer from './component/Footer/Footer'; 
 import cartItem from './component/cartItem'; 
 
@@ -50,6 +51,8 @@ class App extends Component {
             <SignIn alert={this.alert} setUser={this.setUser} />
           )} />
           <Route path="/create" component={Product} />
+          <Route path="/edit/:id" component={EditProduct} /> 
+
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
           )} />

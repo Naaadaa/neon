@@ -22,7 +22,7 @@ const Product = props =>(
     </div>
 
 
-    <Link to={'/edit'+props.product._id}> Edit </Link>
+    <Link to={'/edit/:'+props.product._id}> Edit </Link>
     </div>
    </div>
 )
