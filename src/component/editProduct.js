@@ -22,7 +22,10 @@ export default class EditProduct extends Component {
           description:''
     
         }
+
+        
     }
+
 
     componentDidMount() {
         axios.get('http://localhost:4000/products/'+this.props.match.params.id)
@@ -86,6 +89,7 @@ export default class EditProduct extends Component {
 
         this.props.history.push('/');
     }
+
 
     render() {
         return (

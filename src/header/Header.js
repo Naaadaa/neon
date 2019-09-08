@@ -18,11 +18,7 @@ const unauthenticatedOptions = (
   </React.Fragment>
 )
 
-const alwaysOptions = (
-  <React.Fragment>
-    <Link to="/">Home</Link>
-  </React.Fragment>
-)
+
 
 const Header = ({ user }) => (
   
@@ -30,15 +26,18 @@ const Header = ({ user }) => (
    <NavbarBrand href="/">Neon</NavbarBrand>
 
     <ul>
-     <li className="nav-item" ><Link className="nav-link" to="/cart">My cart</Link></li>
+     <li className="nav-item" ><Link className="nav-link" to="/products">Products</Link></li>
      <li className="nav-item" ><Link className="nav-link" to="/cart"><i className="material-icons">shopping_cart</i></Link></li>
    </ul>
 
   <header className="main-header">
     { user && <span>Welcome, {user.email}</span>} 
    { user ? authenticatedOptions : unauthenticatedOptions }
-    { alwaysOptions }
+
   </header>
+
+  <Link to="/create" className="nav-link"> Create product </Link>
+
   </Navbar>
  
 )

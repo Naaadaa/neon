@@ -10,10 +10,10 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 import Product from './component/product'; 
-import Products from './component/products';
-import EditProduct from './editProduct' ; 
+import EditProduct from './component/editProduct' ; 
 import Footer from './component/Footer/Footer'; 
 import cartItem from './component/cartItem'; 
+import Products from './component/products'
 
 class App extends Component {
   constructor () {
@@ -52,7 +52,7 @@ class App extends Component {
           )} />
           <Route path="/create" component={Product} />
           <Route path="/edit/:id" component={EditProduct} /> 
-
+          <Route path="/products" component={Products} /> 
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
           )} />
@@ -61,11 +61,7 @@ class App extends Component {
           )} />
           
         </main>
-        <Link to="/create" className="nav-link"> Create product </Link>
-        <footer/> 
-        
-        <Products/> 
-        <cartItem/> 
+      
         <Footer/>
       </React.Fragment>
 

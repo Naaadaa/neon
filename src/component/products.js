@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './Products.scss';
 import { Route, Link } from 'react-router-dom'
 import axios from 'axios';
+//  import ProductDetails from './productDetails'; 
+
 
 const Product = props =>(
-
 
 
   <div className="Product-Wrapper">
@@ -22,7 +23,7 @@ const Product = props =>(
     </div>
 
 
-    <Link to={'/edit/'+props.product._id}> Edit * </Link>
+    <Link to={'/edit/'+props.product._id} class="btn btn-info" > Edit  </Link>
     </div>
    </div>
 )
@@ -32,7 +33,11 @@ class Products extends Component {
   constructor(props){
     super(props);
     this.state = { products:[] };
+  
   }
+
+
+
    // retrive the data from database 
   componentDidMount(){
     axios.get('http://localhost:4000/products/')
@@ -53,23 +58,11 @@ class Products extends Component {
     render(){
   return (
 
-
-    <div >
   
-    {/* //     <div className="Product-Image-Wrapper">
-    //       <img src="./t-shirt.png" className="Product-Image" />
-        
-    //     </div>
-    //   <div className="Product-Title">
-    //     <p className="Product-Name">T-Shirt</p>
-    //   </div>
-    //   <div className="Product-Data">
-    //     <small className="Product-Price">90 RS</small>
-    //     <button onClick="" className="product-button Product-Add">Add to Cart</button>
-    //     <br/> </div> */}
- 
- {this.productList()}
-
+    <div className="Products-Container">
+    <div className="Products-Wrapper">
+    {this.productList()}
+    </div>
     </div>   
    
 
