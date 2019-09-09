@@ -13,7 +13,8 @@ import Product from './component/product';
 import EditProduct from './component/editProduct' ; 
 import Footer from './component/Footer/Footer'; 
 import cartItem from './component/cartItem'; 
-import Products from './component/products'
+import Products from './component/products';
+import ProductDetails from './component/ProductDetails'
 
 class App extends Component {
   constructor () {
@@ -53,6 +54,8 @@ class App extends Component {
           <Route path="/create" component={Product} />
           <Route path="/edit/:id" component={EditProduct} /> 
           <Route path="/products" component={Products} /> 
+          <Route path="/productdetails" component={ProductDetails} /> 
+          
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
           )} />
