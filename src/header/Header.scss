@@ -1,50 +1,95 @@
-$charcoal: #bbb;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-.main-header {
-//   align-items: center;
-//   border-bottom: 1px solid $charcoal;
-//   display: flex;
-//   height: 100px;
-//   padding: 0 20px;
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
 
-  a,
-  span {
-    font-size: 1.2em;
-    margin: 0 15px;
+.navbar {
+  font-size: 14px;
+  background-image: linear-gradient(260deg, #f7d343 0%, #c16ecf 100%);
+  padding-bottom: 10px;
+  border-radius: 0 0 85% 85% / 30%;
+
+}
+
+.main-nav {
+  list-style-type: none;
+  display: none;
+}
+
+.nav-links,
+.logo {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.main-nav li {
+  text-align: center;
+  margin: 15px auto;
+}
+
+.logo {
+  display: inline-block;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-left: 20px;
+  // padding-top: 10px;
+  width: 90px;
+  
+}
+
+.navbar-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+.active {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    height: 70px;
+    align-items: center;
   }
-}
 
-.main-header > nav {
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-end;
-}
-
-@media (max-width: 600px) {
-  .main-header {
-    flex-direction: column;
-    font-size: 0.7em;
-    height: auto;
-    padding: 10px;
-
-    h1 {
-      font-size: 2.5em;
-    }
+  .main-nav {
+    display: flex;
+    margin-right: 30px;
+    flex-direction: row;
+    justify-content: flex-end;
   }
-}
 
-@media (max-width: 450px) {
-  .main-header > nav {
-    flex-direction: column;
-    width: 100%;
+  .main-nav li {
+    margin: 0;
+  }
 
-    a,
-    span {
-      border: 1px solid $charcoal;
-      margin-bottom: 5px;
-      text-align: center;
-      width: 80%;
-    }
+  .nav-links {
+    margin-left: 40px;
+  }
+
+  .logo {
+    margin-top: 0;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+
+  .logo:hover,
+  .nav-links:hover {
+    color: rgba(255, 255, 255, 1);
   }
 }

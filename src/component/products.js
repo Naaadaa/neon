@@ -23,10 +23,10 @@ const Product = props =>(
     </div>
 
 
-    <Link to={'/edit/'+props.product._id} class="btn btn-info" > Edit  </Link>
+    {/* <Link to={'/edit/'+props.product._id} class="btn btn-info" > Edit  </Link> */}
     </div>
    </div>
-)
+) 
 
 class Products extends Component {
 
