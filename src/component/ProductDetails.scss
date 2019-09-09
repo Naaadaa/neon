@@ -12,6 +12,7 @@ html, body {
     padding: 15px;
     display: flex;
   }
+
   /* Columns */
 .left-column {
     width: 65%;
@@ -22,6 +23,7 @@ html, body {
     width: 35%;
     margin-top: 60px;
   }
+
   /* Left Column */
 .left-column img {
     width: 100%;
@@ -35,6 +37,7 @@ html, body {
   .left-column img.active {
     opacity: 1;
   }
+
   /* Product Description */
 .product-description {
     border-bottom: 1px solid #E1E8EE;
@@ -102,6 +105,7 @@ html, body {
 //     background-repeat: no-repeat;
 //     background-position: center;
 //   }
+
   /* Cable Configuration */
 .cable-choose {
     margin-bottom: 20px;
@@ -118,26 +122,26 @@ html, body {
     transition: all .5s;
   }
    
-  .cable-choose button:hover,
-  .cable-choose button:active,
-  .cable-choose button:focus {
-    border: 2px solid #86939E;
-    outline: none;
-  }
+//   .cable-choose button:hover,
+//   .cable-choose button:active,
+//   .cable-choose button:focus {
+//     border: 2px solid #86939E;
+//     outline: none;
+//   }
    
-  .cable-config {
-    border-bottom: 1px solid #E1E8EE;
-    margin-bottom: 20px;
-  }
+//   .cable-config {
+//     border-bottom: 1px solid #E1E8EE;
+//     margin-bottom: 20px;
+//   }
    
-  .cable-config a {
-    color: #358ED7;
-    text-decoration: none;
-    font-size: 12px;
-    position: relative;
-    margin: 10px 0;
-    display: inline-block;
-  }
+//   .cable-config a {
+//     color: #358ED7;
+//     text-decoration: none;
+//     font-size: 12px;
+//     position: relative;
+//     margin: 10px 0;
+//     display: inline-block;
+//   }
 //   .cable-config a:before {
 //     content: &quot;?&quot;;
 //     height: 15px;
@@ -165,7 +169,7 @@ html, body {
    
   .cart-btn {
     display: inline-block;
-    background-color: rgb(242, 216, 67);
+    background-color: #7DC855;
     border-radius: 6px;
     font-size: 16px;
     color: #FFFFFF;
@@ -174,8 +178,10 @@ html, body {
     transition: all .5s;
   }
   .cart-btn:hover {
-    background-color: #6a6c69;
+    background-color: #64af3d;
   }
+
+
   /* Responsive */
 @media (max-width: 940px) {
     .container {
