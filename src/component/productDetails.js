@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import './css/ProductDetails.scss';
-
+import './ProductDetails.scss';
+import axios from 'axios'; 
 
  class ProductDetails extends Component {
 
@@ -8,30 +8,45 @@ import './css/ProductDetails.scss';
     super(props);
 
     this.state = {
-
+      
+        name: '',
+        color: '',
+        image: '',
+        price: '',
+        description:''
+  
     };
   }
+  componentDidMount(){
+    axios.get('http://localhost:4000/products/')
+    .then(response=>{
+      this.setState({products: response.data})
+    }) 
+    .catch(function(error){
+      console.log(error);
+    })
 
+  }
   render() {
     return (
     <main className="container">
-    {/* Left Column / Headphones Image */}
+    {/* Left Column /  Image */}
     <div className="left-column">
-      <img data-image="black" src="images/1.png" alt="" />
-      <img data-image="blue" src="images/2.png" alt="" />
-      <img data-image="red" className="active" src="images/3.png" alt="" />
+      {/* <img data-image="" src="./t-shirt.png" alt="" /> */}
+      <img data-image="" src="./assets/t-shirt.png" alt="" />
+      {/* <img data-image="" className="active" src="images/3.png" alt="" /> */}
     </div>
     {/* Right Column */}
     <div className="right-column">
       {/* Product Description */}
       <div className="product-description">
-        <span>T-shirt</span>
+        <span>{this.state.name}</span>
         <h1>Black T-shirt</h1>
         <p>Pink Floyd Slogan Black T ShirtGirl we are obsessin over slogan T s at the mo and this Pink Floyd is a total must have we love this styled with chic mom jeans and killer heels for the ultimate blogger worthy Length approx 75cm 29 5 Based on a sample size UK 8 Model wears size UK 8 EU 36 AUS 8 US 4Model Height 5 ft 8</p>
       </div>
       {/* Product Configuration */}
       <div className="product-configuration">
-        {/* Product Color */}
+        {/* Product Color
         <div className="product-color">
           <span>Color</span>
           <div className="color-choose">
@@ -48,7 +63,7 @@ import './css/ProductDetails.scss';
               <label htmlFor="black"><span /></label>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* Cable Configuration */}
         <div className="cable-config">
           <span>Size</span>

@@ -20,10 +20,11 @@ const Product = props =>(
     <div className="Product-Data">
       <small className="Product-Price">{props.product.price}</small>
       <button onClick="" className="product-button Product-Add">Add to Cart</button>
+      <Link to={'/productDetails'}> Details </Link>
     </div>
 
 
-    {/* <Link to={'/edit/'+props.product._id} class="btn btn-info" > Edit  </Link> */}
+    <Link to={'/edit/'+props.product._id} class="btn btn-info" > Edit  </Link>
     </div>
    </div>
 ) 

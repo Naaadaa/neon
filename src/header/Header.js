@@ -4,6 +4,8 @@ import { Button ,Navbar, NavbarBrand} from 'reactstrap'
 
 import './Header.scss'
 
+
+
 const authenticatedOptions = (
   <React.Fragment class="navbar" >
     <Link to="/change-password">Change Password . </Link>
@@ -18,11 +20,18 @@ const unauthenticatedOptions = (
   </React.Fragment>
 )
 
+// let mainNav = document.getElementById("js-menu");
+// let navBarToggle = document.getElementById("js-navbar-toggle");
+
+// navBarToggle.addEventListener("click", function() {
+//   mainNav.classList.toggle("active");
+// });
 
 
 const Header = ({ user }) => (
   
   <Navbar className="navbar">
+    
 <span className="navbar-toggle" id="js-navbar-toggle">
           <i className="fas fa-bars" />
         </span>
