@@ -40,7 +40,7 @@ class Products extends Component {
 
    // retrive the data from database 
   componentDidMount(){
-    axios.get('http://localhost:4000/products/')
+    axios.get('http://localhost:3010/products/')
     .then(response=>{
       this.setState({products: response.data})
     }) 

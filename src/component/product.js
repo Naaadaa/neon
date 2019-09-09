@@ -75,7 +75,7 @@ class Product extends Component {
        description:this.state.description
     }
 
-    axios.post('http://localhost:4000/products/add',newProduct)
+    axios.post('http://localhost:3010/products/add',newProduct)
     .then(res=> {
       console.log(res.data)
     });
