@@ -1,7 +1,19 @@
-.Product-Wrapper {
-    width: 25%;
+// .Product-Wrapper {
+//     width: 25%;
+//     display: flex;
+//     justify-content: center;
+//   }
+  .Products-Container {
+    width: 100%;
     display: flex;
     justify-content: center;
+    padding: 5rem;
+  }
+  .Products-Wrapper { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 70%;
   }
   
   @media(max-width: 1750px) {

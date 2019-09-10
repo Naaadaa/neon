@@ -84,7 +84,7 @@ export default class EditProduct extends Component {
           price:this.state.price,
           description:this.state.description
         };
-        axios.post('http://localhost:3010/products/update/'+this.props.match.params.id, obj)
+        axios.put('http://localhost:3010/products/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         this.props.history.push('/');
