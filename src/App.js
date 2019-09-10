@@ -54,7 +54,7 @@ class App extends Component {
           <Route path="/create" component={Product} />
           <Route path="/edit/:id" component={EditProduct} /> 
           <Route path="/products" component={Products} /> 
-          <Route path="/productdetails" component={ProductDetails} /> 
+          <Route path="/productdetails/:id" component={ProductDetails} /> 
          <Route path="/cart" component={CartItem}/>
           
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (

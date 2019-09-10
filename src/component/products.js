@@ -11,16 +11,20 @@ const Product = props =>(
   <div className="Product-Wrapper" style={{ width: '18rem' }} >
   <div className="Product">
       <div className="Product-Image-Wrapper">
-        <img src={props.product.image} className="Product-Image" />
-      
+      <Link to={'/productDetails/'+props.product._id} > 
+      <img src={props.product.image} className="Product-Image" />
+      </Link>
+
       </div>
+
+     
     <div className="Product-Title">
       <p className="Product-Name">{props.product.name}</p>
     </div>
     <div className="Product-Data">
       <small className="Product-Price">{props.product.price}</small>
       <button onClick="" className="product-button Product-Add">Add to Cart</button>
-      <Link to={'/productDetails'} class="btn btn-outline-info" > Details </Link>
+  
     </div>
 
     <Link to={'/edit/'+props.product._id} class="btn btn-outline-info"> Edit  </Link>

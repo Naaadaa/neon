@@ -18,54 +18,43 @@ import axios from 'axios';
   
     };
   }
-  componentDidMount(){
-    axios.get('http://localhost:4000/products/')
-    .then(response=>{
-      this.setState({products: response.data})
-    }) 
-    .catch(function(error){
-      console.log(error);
-    })
 
-  }
+
+  componentDidMount() {
+    axios.get('http://localhost:3010/products/'+this.props.match.params.id)
+        .then(response => {
+            this.setState({
+              name: response.data.name,
+              color: response.data.color,
+              image: response.data.image,
+              price: response.data.price,
+              description:response.data.description   
+            })
+        })
+        .catch(function(error) {
+            console.log(error)
+        })
+}
+
   render() {
     return (
     <main className="containeri">
-    {/* Left Column /  Image */}
-    <div className="left-column">
-      {/* <img data-image="" src="./t-shirt.png" alt="" /> */}
-      <img data-image="" src="./assets/t-shirt.png" alt="" />
-      {/* <img data-image="" className="active" src="images/3.png" alt="" /> */}
-    </div>
-    {/* Right Column */}
+   
+    
+
+      <img src={this.state.image} className="Product-Image" />
+ 
+  
     <div className="right-column">
-      {/* Product Description */}
+
       <div className="product-description">
-        <span>{this.state.name}</span>
-        <h1>Black T-shirt</h1>
-        <p>Pink Floyd Slogan Black T ShirtGirl we are obsessin over slogan T s at the mo and this Pink Floyd is a total must have we love this styled with chic mom jeans and killer heels for the ultimate blogger worthy Length approx 75cm 29 5 Based on a sample size UK 8 Model wears size UK 8 EU 36 AUS 8 US 4Model Height 5 ft 8</p>
+  
+        <h1> {this.state.name}</h1>
+        <p> {this.state.description}</p>
       </div>
-      {/* Product Configuration */}
+
       <div className="product-configuration">
-        {/* Product Color
-        <div className="product-color">
-          <span>Color</span>
-          <div className="color-choose">
-            <div>
-              <input data-image="red" type="radio" id="red" name="color" defaultValue="red" defaultChecked />
-              <label htmlFor="red"><span /></label>
-            </div>
-            <div>
-              <input data-image="blue" type="radio" id="blue" name="color" defaultValue="blue" />
-              <label htmlFor="blue"><span /></label>
-            </div>
-            <div>
-              <input data-image="black" type="radio" id="black" name="color" defaultValue="black" />
-              <label htmlFor="black"><span /></label>
-            </div>
-          </div>
-        </div> */}
-        {/* Cable Configuration */}
+
         <div className="cable-config">
           <span>Size</span>
           <div className="cable-choose">
@@ -77,7 +66,7 @@ import axios from 'axios';
       </div>
       {/* Product Pricing */}
       <div className="product-price">
-        <span>90 SR</span>
+        <span>{this.state.price} SR</span>
         <a href="#" className="cart-btn">Add to cart</a>
       </div>
     </div>
@@ -90,3 +79,4 @@ import axios from 'axios';
 
 
 export default ProductDetails;
+
