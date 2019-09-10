@@ -1,79 +1,83 @@
+
 import React, { Component } from 'react'
-import { Route, Link } from 'react-router-dom'
-import axios from 'axios';
-
-
-const CartItems = props => {
-  return(
-
+  import axios from 'axios';
+  
+  export default class CartItem extends React.Component {
+    state = {
+      carts: []
+    }
+  
+    componentDidMount() {
+       // check if owner already has cart?
+       if(this.props.user){
+  axios({url: `http://localhost:3010/cart`,method: 'GET', headers: {
+    'Authorization': `Bearer ${this.props.user.token}` // FOR EXPRESS
+    // 'Authorization': `Token ${user.token}` // FOR RAILS
+  }}) //object should contain product id
+  .then(response => {
+    
+    
+   const cart = response.data.carts.filter(cart=>{
+     return cart.owner == this.props.user._id
+   })
+   this.setState({
+    carts: cart
+  });
+console.log(cart);
+  
+// {this.state.carts}
+    }
+  )
+    }}
+        
+      
+   
+  render() {
+    let cart = ''
+    if (this.state.carts.length > 0){
+       cart = this.state.carts[0].products.map(product=>{
+        return <div>
+        
+      
+                         <thead>
+                       <tr>
+                         <th> {product.name} </th>
+                         <br/>
+                         <th> {product.price} </th>
+                       
+                       </tr>
+                    </thead>
+        </div>
+        
+      })
+    } else { cart = "loading"}
+  
+  return (
+<div> 
 <table className ="table table-striped" style={{marginTop:20}}>
                     <thead>
                        <tr>
-                         <th> {props.cart}  </th>
+                         <th> Product Name </th>
+                      
                          <th> Price </th>
-                         <th> Quantity </th>
                          <th> Actions </th>
                        </tr>
-                     
+       
                     </thead>
-
                      <tbody>
                       <th> </th>
                       <th> </th>
-                      <th> </th>
                      <th>
-                     <button type="button" class="btn btn-secondary btn-danger">Delete</button>
-
+                     <button type="button" className="btn btn-secondary btn-danger">Delete</button>
                      </th>
                      </tbody>
                   
                   </table>
-
-  )
- 
-};
-
-
-class CartItem extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = { cart:[] };
-  
-  }
-
-
-
-   // retrive the data from database 
-  componentDidMount(){
-    axios.get('http://localhost:3010/cart/')
-    .then(response=>{
-      this.setState({cart: response.data})
-      console.log(response.data); 
-    }) 
-    .catch(function(error){
-      console.log(error);
-    })
-
-  }
-  cartList(){
-    return this.state.cart.map(function(currentProduct,i){
-      return <CartItems cart={currentProduct} key={i} />;
-    });
-  }
-
-
-
-render(){
-  return(
-  <div> 
-    {this.cartList()}
-    </div>
-   
-
-  )
-}
-}
-
-
-export default CartItem;
+                  {/* {this.state.carts} */}
+                  <ul>
+{cart}
+    {/* { this.state.carts.map(cart => <li>{cart.name}</li>)} */}
+  </ul>
+</div>
+  );
+}};
