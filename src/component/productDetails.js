@@ -42,7 +42,7 @@ import axios from 'axios';
    
     
 
-      <img src={this.state.image} className="Product-Image" />
+      <img src={this.state.image} className="Product-Image1" />
  
   
     <div className="right-column">
