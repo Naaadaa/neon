@@ -25,8 +25,20 @@ const Product = props =>(
       <small className="Product-Price">{props.product.price}</small>
       <button onClick={props.addToCart} className="product-button Product-Add">Add to Cart</button>
     </div>
-    <Link to={'/edit/'+props.product._id} class="btn btn-outline-info"> Edit  </Link>
+    <div class="btn-group mr-4" role="group" aria-label="First group">
+   
+
+    <Link to={'/edit/'+props.product._id} type="button" class="btn btn-default"  >Edit</Link>
+    <td>
+   {/* this is where the delete happens */}
+   <button onClick={ () =>
+       axios.delete('http://localhost:3010/products/'+props.product._id)
+       
+          .then(() => props.deleteItem(props.product._id))                    
+          .catch(err => console.log(err))}  class="btn btn-default" >Delete</button>
+    </td>
     </div>
+    </div> 
    </div>
 ) 
 
