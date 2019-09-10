@@ -8,7 +8,7 @@ import axios from 'axios';
 const Product = props =>(
 
 
-  <div className="Product-Wrapper">
+  <div className="Product-Wrapper" style={{ width: '18rem' }} >
   <div className="Product">
       <div className="Product-Image-Wrapper">
         <img src={props.product.image} className="Product-Image" />
@@ -20,11 +20,10 @@ const Product = props =>(
     <div className="Product-Data">
       <small className="Product-Price">{props.product.price}</small>
       <button onClick="" className="product-button Product-Add">Add to Cart</button>
-      <Link to={'/productDetails'}> Details </Link>
+      <Link to={'/productDetails'} class="btn btn-outline-info" > Details </Link>
     </div>
 
-
-    <Link to={'/edit/'+props.product._id} class="btn btn-info" > Edit  </Link>
+    <Link to={'/edit/'+props.product._id} class="btn btn-outline-info"> Edit  </Link>
     </div>
    </div>
 ) 
