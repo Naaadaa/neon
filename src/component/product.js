@@ -24,7 +24,7 @@ class Product extends Component {
     }
   }
 
-// ------------ Updating ---------- 
+// ------------ Edit ---------- 
   onChangeName(e) {
     this.setState({
       name: e.target.value

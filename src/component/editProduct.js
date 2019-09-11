@@ -96,7 +96,7 @@ export default class EditProduct extends Component {
             <div>
                 <h3>Update </h3>
                 <div style={{marginTop: 20}}>
-         <form onSubmit={this.onSubmit}> 
+          <form onSubmit={this.onSubmit}> 
             <div className="form-group">
                 <label> Product </label>
                  <input type="text" className="form-control"

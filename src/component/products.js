@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Products.scss';
 import { Route, Link } from 'react-router-dom'
 import axios from 'axios';
+
 //  import ProductDetails from './productDetails'; 
 
 
@@ -28,19 +29,20 @@ const Product = props =>(
     <div class="btn-group mr-4" role="group" aria-label="First group">
    
 
-    <Link to={'/edit/'+props.product._id} type="button" class="btn btn-default"  >Edit</Link>
+    <Link to={'/edit/'+props.product._id} type="button" class="btn btn-default tiny"  >Edit</Link>
     <td>
    {/* this is where the delete happens */}
    <button onClick={ () =>
        axios.delete('http://localhost:3010/products/'+props.product._id)
        
           .then(() => props.deleteItem(props.product._id))                    
-          .catch(err => console.log(err))}  class="btn btn-default" >Delete</button>
+          .catch(err => console.log(err))}  class="btn btn-default tiny"   >Delete</button>
     </td>
     </div>
     </div> 
    </div>
 ) 
+
 
 class Products extends Component {
 
@@ -51,7 +53,6 @@ class Products extends Component {
   }
 
 
-   
 
    // Delet a single console post
  addToCart = (id) => {
