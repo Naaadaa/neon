@@ -1,7 +1,7 @@
+
 import React, { Component } from 'react'
 import './App.scss'
 import { Route, Link } from 'react-router-dom'
-
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
@@ -15,28 +15,21 @@ import Footer from './component/Footer/Footer';
 import CartItem from './component/cartItem'; 
 import Products from './component/products';
 import ProductDetails from './component/ProductDetails'
-
 class App extends Component {
   constructor () {
     super()
-
     this.state = {
       user: null,
       alerts: []
     }
   }
-
   setUser = user => this.setState({ user })
-
   clearUser = () => this.setState({ user: null })
-
   alert = (message, type) => {
     this.setState({ alerts: [...this.state.alerts, { message, type }] })
   }
-
   render () {
     const { alerts, user } = this.state
-
     return (
       <React.Fragment>
         <Header user={user} />
@@ -50,27 +43,36 @@ class App extends Component {
           )} />
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />
+            
           )} />
           <Route path="/create" component={Product} />
           <Route path="/edit/:id" component={EditProduct} /> 
-          <Route path="/products" component={Products} /> 
+          {/* <Route path="/products" component={Products} />  */}
+    
           <Route path="/productdetails/:id" component={ProductDetails} /> 
-         <Route path="/cart" component={CartItem}/>
+         {/* <Route path="/cart" component={CartItem}/> */}
           
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+ 
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
+           
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          
+          <Route user={user} path='/products' render={() => (
+            <Products  user={user} />
+          )} />
+          <Route user={user} path='/cart' render={() => (
+            <CartItem  user={user} />
           )} />
           
         </main>
       
         <Footer/>
       </React.Fragment>
-
     )
   }
 }
-
 export default App

@@ -1,8 +1,10 @@
-
 import React, { Component } from 'react'
   import axios from 'axios';
   
   export default class CartItem extends React.Component {
+    constructor(props){
+      super(props);
+        }
     state = {
       carts: []
     }
@@ -68,7 +70,16 @@ console.log(cart);
                       <th> </th>
                       <th> </th>
                      <th>
-                     <button type="button" className="btn btn-secondary btn-danger">Delete</button>
+                     <button onClick={ () =>
+       axios.delete('http://localhost:3010/cart/'+this.cart.owner)
+       
+          .then(() => this.deleteItem(this.cart.owner))                    
+          .catch(err => console.log(err)
+          
+          
+          )
+    }
+    >Delete</button>
                      </th>
                      </tbody>
                   
@@ -76,7 +87,7 @@ console.log(cart);
                   {/* {this.state.carts} */}
                   <ul>
 {cart}
-    {/* { this.state.carts.map(cart => <li>{cart.name}</li>)} */}
+     {/* { this.state.carts.map(cart => <li>{cart.name}</li>)} */}
   </ul>
 </div>
   );

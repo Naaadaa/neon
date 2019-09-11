@@ -40,11 +40,6 @@ $npm start
 
 
 
-## Wireframes
-<!-- Home page -->
-![image](./images/mad-hat.png)
-
-
 
 ## Technologies
 <!-- **Front-end:** -->

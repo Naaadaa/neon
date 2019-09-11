@@ -2,58 +2,69 @@ import React, { Component } from 'react';
 import './Products.scss';
 import { Route, Link } from 'react-router-dom'
 import axios from 'axios';
-
 //  import ProductDetails from './productDetails'; 
-
-
-const Product = props =>(
-
-
-  <div className="Product-Wrapper" style={{ width: '18rem' }} >
-  <div className="Product">
-      <div className="Product-Image-Wrapper">
-      <Link to={'/productDetails/'+props.product._id} > 
-      <img src={props.product.image} className="Product-Image" />
-    </Link>
-
-      </div>
-
+const Product = props =>{
+  let buttons = ''
+  if ( props.user && props.user.isAdmin){
+buttons = (<button class="btn btn-default tiny"  onClick={ () =>
+  axios.delete('http://localhost:3010/products/'+props.product._id)
+  
+     .then(() => props.deleteItem(props.product._id))                    
+     .catch(err => console.log(err)
      
+     
+     )
+}
+>Delete</button>)
+  } 
+  return (
+  <div className="Product-Wrapper" style={{ width: '18rem' }} >
+   <div className="Product">
+     <div className="Product-Image-Wrapper">
+     <Link to={'/productDetails/'+props.product._id} > 
+     <img src={props.product.image} className="Product-Image" />
+  </Link>
+  </div>
     <div className="Product-Title">
       <p className="Product-Name">{props.product.name}</p>
     </div>
     <div className="Product-Data">
-      <small className="Product-Price">{props.product.price}</small>
+      <small className="Product-Price">{props.product.price} SR</small>
       <button onClick={props.addToCart} className="product-button Product-Add">Add to Cart</button>
-    </div>
-    <div class="btn-group mr-4" role="group" aria-label="First group">
-   
-
-    <Link to={'/edit/'+props.product._id} type="button" class="btn btn-default tiny"  >Edit</Link>
-    <td>
+      <td>
    {/* this is where the delete happens */}
-   <button onClick={ () =>
-       axios.delete('http://localhost:3010/products/'+props.product._id)
-       
-          .then(() => props.deleteItem(props.product._id))                    
-          .catch(err => console.log(err))}  class="btn btn-default tiny"   >Delete</button>
-    </td>
+   
+   {buttons}
+</td>
+  
+<br/>
+      {/* <Link to={'/delete/'+props.product._id} class="btn btn-outline-info" >  Delete</Link> */}
     </div>
-    </div> 
+    
+    <Link to={'/edit/'+props.product._id} class="btn btn-default tiny"> Edit  </Link>
+    </div>
+    
    </div>
-) 
-
-
+) }
 class Products extends Component {
-
   constructor(props){
     super(props);
     this.state = { products:[] };
     this.addToCart = this.addToCart.bind(this)
+  
   }
-
-
-
+  handleChange = event => {
+    this.setState({ id: event.target.value });
+  }
+  handleSubmit = event => {
+    event.preventDefault();
+    axios.delete(`http://localhost:3010/products/${this.state.id}`)
+      .then(res => {
+        // id: this.state.id,
+        console.log(res);
+        console.log(res.data);
+      })
+  }
    // Delet a single console post
  addToCart = (id) => {
  
@@ -98,8 +109,6 @@ data: {cart: {products: id}}})  //object should contain product id
   })
 }
 
-
-
    // retrive the data from database 
   componentDidMount(){
     axios.get('http://localhost:3010/products/')
@@ -109,32 +118,27 @@ data: {cart: {products: id}}})  //object should contain product id
     .catch(function(error){
       console.log(error);
     })
-
   }
 
   productList(){
-    const addToCart = this.addToCart
+const addToCart = this.addToCart
+const that = this
     return this.state.products.map(function(currentProduct,i){
-      return <Product product ={currentProduct} key={i} addToCart={()=>addToCart(currentProduct._id)} />;
+      return <Product user={that.props.user} product ={currentProduct} key={i} addToCart={()=>addToCart(currentProduct._id)} />;
     });
   }
     render(){
-      console.log("user from products", this.props.user); 
+ console.log("user from products", this.props.user);
   return (
-
   
     <div className="Products-Container">
     <div className="Products-Wrapper">
     {this.productList()}
+    {/* <button type="submit">Delete</button> */}
     </div>
     </div>   
    
-
   );
  }
 };
-
-
 export default Products;
-
-   
