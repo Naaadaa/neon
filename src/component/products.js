@@ -4,19 +4,27 @@ import { Route, Link } from 'react-router-dom'
 import axios from 'axios';
 //  import ProductDetails from './productDetails'; 
 const Product = props =>{
-  let buttons = ''
+  let buttons = '';
   if ( props.user && props.user.isAdmin){
-buttons = (<button class="btn btn-default tiny"  onClick={ () =>
+      
+buttons = (
+  <div>
+<button className="btn btn-default " onClick={ () =>
   axios.delete('http://localhost:3010/products/'+props.product._id)
   
-     .then(() => props.deleteItem(props.product._id))                    
-     .catch(err => console.log(err)
-     
-     
-     )
+  .then(() => props.deleteItem(props.product._id))                    
+  .catch(err => console.log(err)
+  
+  
+  )
 }
->Delete</button>)
-  } 
+>Delete</button>
+<Link to={'/edit/'+props.product._id} type="button" className="btn btn-default " >Edit</Link>
+<Link to={'/create/'+props.product._id} type="button" className="btn btn-default  " >Create</Link>
+</div>
+)
+}
+
   return (
   <div className="Product-Wrapper" style={{ width: '18rem' }} >
    <div className="Product">
@@ -31,6 +39,7 @@ buttons = (<button class="btn btn-default tiny"  onClick={ () =>
     <div className="Product-Data">
       <small className="Product-Price">{props.product.price} SR</small>
       <button onClick={props.addToCart} className="product-button Product-Add">Add to Cart</button>
+
       <td>
    {/* this is where the delete happens */}
    
@@ -38,10 +47,9 @@ buttons = (<button class="btn btn-default tiny"  onClick={ () =>
 </td>
   
 <br/>
-      {/* <Link to={'/delete/'+props.product._id} class="btn btn-outline-info" >  Delete</Link> */}
     </div>
-    
-    <Link to={'/edit/'+props.product._id} class="btn btn-default tiny"> Edit  </Link>
+    <Link to={'/edit/'+props.product._id} type="button" className="btn btn-default tiny" >Edit</Link>
+
     </div>
     
    </div>

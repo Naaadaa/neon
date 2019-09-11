@@ -41,7 +41,7 @@ const Header = ({ user }) => (
 
   </header>
 
-  <Link to="/create" className="nav-links"> Create product </Link>
+  
 
   </Navbar>
  
