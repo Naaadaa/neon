@@ -36,11 +36,11 @@ body {
   display: inline-block;
   font-size: 22px;
   margin-top: 10px;
-  margin-left: 20px;
+  // margin-left: 20px;
   padding-left: 20px;
   // padding-top: 10px;
-  width: 90px;
-  
+  width: 200px;
+  margin-top: -20px;
 }
 
 .navbar-toggle {
@@ -61,7 +61,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding-bottom: 0;
-    height: 70px;
+    height: 150px;
     align-items: center;
   }
 
@@ -78,10 +78,11 @@ body {
 
   .nav-links {
     margin-left: 40px;
+    font-size: 25px;
   }
 
   .logo {
-    margin-top: 0;
+    margin-top: -20px;
   }
 
   .navbar-toggle {

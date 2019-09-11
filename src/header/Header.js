@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button ,Navbar, NavbarBrand} from 'reactstrap'
 
 import './Header.scss'
-
+ 
 const authenticatedOptions = (
   <React.Fragment class="navbar" >
     <Link to="/change-password">Change Password . </Link>
@@ -26,11 +26,10 @@ const Header = ({ user }) => (
 <span className="navbar-toggle" id="js-navbar-toggle">
           <i className="fas fa-bars" />
         </span>
-        <img className="logo" src="./assets/neonLogo.png" alt="logo" />
-        {/* <a href="#" className="logo">NEON</a> */}
+        <Link to="/products" > 
+        <img  className="logo" src="./assets/neonLogo.png" alt="logo" />
+        </Link>
     <ul  className="main-nav" id="js-menu" >
-     <li>
-       <Link className="nav-links" to="/products">Products</Link></li>
      <li>
        <Link className="nav-links" to="/cart"><i className="material-icons">My Cart</i></Link></li>
    

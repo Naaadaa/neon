@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.scss'
-
+ 
  
 const Footer = () =>{
     return(
@@ -21,10 +21,7 @@ const Footer = () =>{
           <div className="footer-grids">
             <div className="footer one">
               <h3> About Us</h3>
-              <p> Nemo enim ipsam voluptatem quia
-                voluptas sit aspernatur aut odit aut fugit, 
-                sed quia consequuntur magni dolores eos qui 
-                ratione voluptatem sequi nesciunt.</p>
+              <p> Saudi label Neon offers a cool collection of t-shirts and gifts, homeware. Channelling its quirky personality into a range of, designs, the brand's glitter notebooks are your new desk heroes, while novelty mugs  brighten up kitchen cupboards.</p>
               <div className="clear" />
             </div>
             <div className="footer two">
@@ -32,7 +29,7 @@ const Footer = () =>{
               <ul>
                 <li><a className="fb" href="#"><i />Like us on Facebook</a></li>
                 <li><a className="fb1" href="#"><i />Follow us on Twitter</a></li>
-                <li><a className="fb2" href="#"><i />Follow us on SnapChat</a></li>
+                <li><a className="fb2" href="#"><i />Follow us on google</a></li>
               </ul>
             </div>
             <div className="footer three">
@@ -40,7 +37,7 @@ const Footer = () =>{
               <ul>
                 <li>Neon, Riyadh </li>
                 
-                <li>1234567890</li>
+                <li>056-733-2359</li>
                 
                 <li><a href="mailto:info@example.com">contact@neon.com</a> </li>
               </ul>
@@ -49,7 +46,7 @@ const Footer = () =>{
           </div>
           <div className="copy-right-grids">
             <div className="copy-left">
-              <p className="footer-gd">© 2019  | Design by </p>
+              <p className="footer-gd">© 2019  | Copyright</p>
             </div>
             <div className="copy-right">
               <ul>
@@ -61,7 +58,7 @@ const Footer = () =>{
             <div className="clear" />
           </div>
         </div>
-      </div>		
+      </div>        
     </div>
 
     )

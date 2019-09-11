@@ -40,15 +40,16 @@ console.log(cart);
        cart = this.state.carts[0].products.map(product=>{
         return <div>
         
-      
-                         <thead>
-                       <tr>
-                         <th> {product.name} </th>
-                         <br/>
-                         <th> {product.price} </th>
-                       
-                       </tr>
-                    </thead>
+                    
+                     
+                            <tbody>
+                            <td> {product.name} </td> 
+                             <td> </td>
+                             <td> </td> 
+                             <br/> 
+                              <td> {product.price} </td> 
+                           </tbody>
+                    
         </div>
         
       })
