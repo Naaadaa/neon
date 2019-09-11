@@ -20,7 +20,7 @@ buttons = (
 }
 >Delete</button>
 <Link to={'/edit/'+props.product._id} type="button" className="btn btn-default " >Edit</Link>
-<Link to={'/create/'+props.product._id} type="button" className="btn btn-default  " >Create</Link>
+<Link to={'/create/'+props.product._id} type="button" className="btn btn-default " >Create</Link>
 </div>
 )
 }

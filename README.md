@@ -35,9 +35,17 @@ $npm start
 **Version 2**  
 - User must be able to add product to shopping cart . 
 - User must be able to view the shopping cart . 
-- User must be able to edit or delete the products in the shopping cart . 
+- Admin must be able to  create ,edit and delete the products. 
 
 
+
+## Walkthrough
+<!-- Home page -->
+![image](https://i.imgur.com/LAN8UBl.png)
+<!-- product details -->
+![image](https://i.imgur.com/935pAmv.png)
+<!-- contact --> 
+![image](https://i.imgur.com/Vhh0TdM.png)
 
 
 
@@ -51,6 +59,12 @@ $npm start
 - Express.js
 - Node.js
 - Mongo 
+
+## Contributors
+- [Nada Alotaibi](https://github.com/nadaalotaibii)
+- [Ashwaq Alrouqi](https://github.com/ASSROUGUI)
+- [Hanan Alharbi](https://github.com/Hanan92)
+- [Munirah Almadhi](https://github.com/Imunirah)
 
 
 ## Demo
