@@ -3,6 +3,7 @@
 //     display: flex;
 //     justify-content: center;
 //   }
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
   .Products-Container {
     width: 100%;
     display: flex;
@@ -42,7 +43,7 @@
     display: flex;
     justify-content: center;
   }
-  
+ 
   .Product {
     width: 250px;
     -webkit-box-shadow: 10px 10px 5px -6px rgba(0,3,51,0.04);
@@ -95,6 +96,7 @@
     color: white;
   }
 
+  
   .tiny {
     
       display: inline-block;
@@ -107,3 +109,14 @@
     
 
   }
+
+.ll{
+  transform: translatex(30px);
+  font-size:40px;
+  color: #f7d343 ;
+}
+
+.btn-sm {
+  transform: translatey(20px);
+  transform: translatex(55px);
+}

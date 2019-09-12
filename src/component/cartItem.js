@@ -37,23 +37,24 @@ console.log(cart);
   render() {
     let cart = ''
     if (this.state.carts.length > 0){
-       cart = this.state.carts[0].products.map(product=>{
-        return <div>
+      for (let i=0;i<this.state.carts.length;i++){
+       cart = this.state.carts[i].products.map(product=>{
+        return  <div>
         
-                    
-                     
-                            <tbody>
-                            <td> {product.name} </td> 
-                             <td> </td>
-                             <td> </td> 
-                             <br/> 
-                              <td> {product.price} </td> 
-                           </tbody>
-                    
+      {cart}
+                         <thead>
+                       <tr>
+                          <th> {product.name} </th>
+                          <th> {product.price} </th>
+                          <img src={product.image}alt="Smiley face" height="42" width="42"/>
+                         
+                       
+                       </tr>
+                    </thead>
         </div>
         
       })
-    } else { cart = "loading"}
+     } } else { cart = "loading"}
   
   return (
 <div> 
@@ -65,7 +66,7 @@ console.log(cart);
                          <th> Price </th>
                          <th> Actions </th>
                        </tr>
-       
+                       {cart}
                     </thead>
                      <tbody>
                       <th> </th>
@@ -85,10 +86,10 @@ console.log(cart);
                      </tbody>
                   
                   </table>
-                  {/* {this.state.carts} */}
+                 
                   <ul>
-{cart}
-     {/* { this.state.carts.map(cart => <li>{cart.name}</li>)} */}
+
+  
   </ul>
 </div>
   );

@@ -20,6 +20,7 @@ const unauthenticatedOptions = (
 
 
 
+
 const Header = ({ user }) => (
   
   <Navbar className="navbar">
@@ -31,6 +32,7 @@ const Header = ({ user }) => (
         </Link>
     <ul  className="main-nav" id="js-menu" >
      <li>
+    
        <Link className="nav-links" to="/cart"><i className="material-icons">My Cart</i></Link></li>
    
    </ul>

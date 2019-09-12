@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import './Products.scss';
 import { Route, Link } from 'react-router-dom'
 import axios from 'axios';
-//  import ProductDetails from './productDetails'; 
+//  import ProductDetails from './productDetails';
+
 const Product = props =>{
   let buttons = '';
   if ( props.user && props.user.isAdmin){
       
 buttons = (
   <div>
-<button className="btn btn-default " onClick={ () =>
+  <div className="btn-group" role="group">
+ 
+<button className="btn btn-sm btn-danger" onClick={ () =>
   axios.delete('http://localhost:3010/products/'+props.product._id)
   
   .then(() => props.deleteItem(props.product._id))                    
@@ -19,8 +22,9 @@ buttons = (
   )
 }
 >Delete</button>
-<Link to={'/edit/'+props.product._id} type="button" className="btn btn-default " >Edit</Link>
-<Link to={'/create/'+props.product._id} type="button" className="btn btn-default " >Create</Link>
+<Link to={'/edit/'+props.product._id} type="button" className="btn btn-sm btn-danger" >Edit</Link>
+<Link to={'/create/'+props.product._id} type="button" className="btn btn-sm btn-danger" >Create</Link>
+</div>
 </div>
 )
 }
@@ -38,7 +42,7 @@ buttons = (
     </div>
     <div className="Product-Data">
       <small className="Product-Price">{props.product.price} SR</small>
-      <button onClick={props.addToCart} className="product-button Product-Add">Add to Cart</button>
+      <button onClick={props.addToCart} class="fa fa-shopping-cart ll"></button>
 
       <td>
    {/* this is where the delete happens */}
@@ -48,7 +52,6 @@ buttons = (
   
 <br/>
     </div>
-    <Link to={'/edit/'+props.product._id} type="button" className="btn btn-default tiny" >Edit</Link>
 
     </div>
     
@@ -102,20 +105,21 @@ data: {cart: {products: [id]}}}) //object should contain product id
       })
     }
     
-    else  {
-    // if cart already exists update cart with product id
-     
-    axios({url: `http://localhost:3010/cart`,method: 'PATCH', headers: {
-    'Authorization': `Bearer ${this.props.user.token}` // FOR EXPRESS
-    // 'Authorization': `Token ${user.token}` // FOR RAILS
-  },
-data: {cart: {products: id}}})  //object should contain product id
-            .then(response => {
-                console.log("UPDATED CART",response)
-            })
+ 
+      else  {
+        // if cart already exists update cart with product id
+         
+        axios({url: `http://localhost:3010/cart`,method: 'POST', headers: {
+        'Authorization': `Bearer ${this.props.user.token}` // FOR EXPRESS
+        // 'Authorization': `Token ${user.token}` // FOR RAILS
+      },
+    data: {cart: {products: id}}})  //object should contain product id
+                .then(response => {
+                    console.log("ADD to CART",response)
+                })
+        }
+      })
     }
-  })
-}
 
    // retrive the data from database 
   componentDidMount(){
